@@ -355,7 +355,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:33%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -364,7 +363,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:33%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -373,7 +371,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:33%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -406,7 +403,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -415,7 +411,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -424,7 +419,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -456,7 +450,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -474,7 +467,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -505,7 +497,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -514,7 +505,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -523,7 +513,6 @@ a{
 	flex-direction:column;
 	flex-wrap:wrap;
 	width:31%;
-	border:2px solid black;
 	padding:10px;
 }
 
@@ -581,6 +570,42 @@ footer{
 }
 	
 	
+#toolbar{
+position: fixed;
+top: 50%;
+right: 20px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+padding: 10px;
+background: rgba(255,255,255,0.9);
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+z-index: 1000;
+
+}
+
+#toolbar button{
+    width: 55px;
+    height: 55px;
+    font-size: 28px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+
+}
+
+#toolbar button:hover{
+    background: #dddddd;
+    transform: scale(1.05);
+}
+
+#toolbar button:active{
+    transform: scale(0.95);
+}
+	
 @media (max-width:800px){
 	
 nav{
@@ -612,73 +637,61 @@ nav{
 #katana{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #culture{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #present{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #origin{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #war{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #religion{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #metal{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #creation{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #finish{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 	
 #iaido{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #popculture{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #art{
 	display:flex;
 	width:97.3%;
-	border:2px solid black;
 }
 
 #page1btn{
@@ -730,6 +743,17 @@ nav{
 }
 
 #footerSection1{display:none;} /*hide QR code */
+
+#relevancetitle{
+	color:#595a3a;
+	font-size:90px;
+	margin:0;
+	padding-top:50px;
+}
+
+#toolbar{
+	display:none;
+}
 }
 
 
@@ -773,38 +797,3 @@ nav{
 
 
 
-#toolbar{
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-
-}
-
-#toolbar button{
-    width: 55px;
-    height: 55px;
-    font-size: 28px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-
-}
-
-#toolbar button:hover{
-    background: #dddddd;
-    transform: scale(1.05);
-}
-
-#toolbar button:active{
-    transform: scale(0.95);
-}
