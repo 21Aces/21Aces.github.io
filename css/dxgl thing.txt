@@ -1,0 +1,160 @@
+	//meshList[GEO_TRIANGLE]->Render();
+	//Mtx44 sclJt, rotJt, tslJt;
+
+	//sclJt.SetToScale(1, 1, 1);
+	//rotJt.SetToRotation(-r, 0, 0, 1);
+	//tslJt.SetToTranslation(3, 3, 0);
+
+	//Mtx44 jointMtx = tslJt * rotJt * sclJt;
+
+	//model = jointMtx;
+
+	//MVP = projection * view * jointMtx;
+
+	//glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+	//meshList[GEO_HEXAGON]->Render();
+
+	//Mtx44 sclArm, rotArm, tslArm;
+
+	//sclArm.SetToScale(4, 1, 1);
+	//rotArm.SetToRotation(0, 0, 0, 1);
+	//tslArm.SetToTranslation(2, 0, 0);
+
+	//Mtx44 armMtx = tslArm * rotArm * sclArm;
+
+	//model = jointMtx * armMtx;
+
+	//MVP = projection * view * model;
+
+	//glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+	//meshList[GEO_QUAD]->Render();
+
+	//Mtx44 sclArm2, rotArm2, tslArm2;
+
+	//sclArm2.SetToScale(4, 1, 1);
+	//rotArm2.SetToRotation(0, 0, 0, 1);
+	//tslArm2.SetToTranslation(-2, 0, 0);
+
+	//Mtx44 armMtx2 = tslArm2 * rotArm2 * sclArm2;
+
+	//model = jointMtx * armMtx * armMtx2;
+
+	//MVP = projection * view * model;
+
+	//glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+	//meshList[GEO_QUAD]->Render();
+	//meshList[GEO_CIRCLE]->Render();
+	//Mtx44 scale;
+	//scale.SetToScale(5, 5, 1);
+	//model = scale;
+	//MVP = projection * view * model;
+	//glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+	//Mtx44 rotate;
+	//rotate.SetToRotation(-90, 0, 0, 1);
+	//model = rotate;
+	//MVP = projection * view * model;
+	//glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+	//Mtx44 translate, scale, rotate;
+	//translate.SetToTranslation(x, 0, 0);
+	//scale.SetToScale(s, s, 1);
+	//rotate.SetToRotation(r, 0, 0, 1);
+	//model = translate * rotate * scale;
+	//MVP = projection * view * model;
+	//glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+	//meshList[GEO_STAR]->Render();
+// Body
+	//Mtx44 tslBd, sclBd, rotBd;
+	//tslBd.SetToTranslation(x, y, 0);
+	//sclBd.SetToScale(3, 3, 1);
+	//rotBd.SetToRotation(0, 0, 0, 1);
+
+	//Mtx44 bodyMtx = tslBd;
+	//{
+	//	model = bodyMtx * rotBd * sclBd;
+
+	//	MVP = projection * view * model;
+	//	glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+
+	//	meshList[GEO_HEXAGON]->Render();
+	//}
+
+	//// Right Side
+	//{
+	//	// Joint /////
+	//	Mtx44 sclJt, rotJt, tslJt;
+	//	sclJt.SetToScale(1, 1, 1);
+	//	rotJt.SetToRotation(r, 0, 0, 1);
+	//	tslJt.SetToTranslation(3, 0, 0);
+
+	//	Mtx44 jointMtx = tslJt * rotJt * sclJt;
+
+	//	model = bodyMtx * jointMtx;
+
+	//	MVP = projection * view * model;
+	//	glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+
+	//	meshList[GEO_HEXAGON]->Render();
+
+	//	// Arm /////
+	//	Mtx44 sclArm, rotArm, tslArm;
+	//	sclArm.SetToScale(4, 1, 1);
+	//	rotArm.SetToRotation(0, 0, 0, 1);
+	//	tslArm.SetToTranslation(2, 0, 0);
+
+	//	Mtx44 armMtx = tslArm * rotArm * sclArm;
+
+	//	model = bodyMtx * jointMtx * armMtx;
+
+	//	MVP = projection * view * model;
+	//	glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+
+	//	meshList[GEO_QUAD]->Render();
+	//}
+
+	//// Left Side
+	//{
+	//	// Joint /////
+	//	Mtx44 sclJt, rotJt, tslJt;
+	//	sclJt.SetToScale(1, 1, 1);
+	//	rotJt.SetToRotation(-r + 180, 0, 0, 1);
+	//	tslJt.SetToTranslation(-3, 0, 0);
+
+	//	Mtx44 jointMtx = tslJt * rotJt * sclJt;
+
+	//	model = bodyMtx * jointMtx;
+
+	//	MVP = projection * view * model;
+	//	glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+
+	//	meshList[GEO_HEXAGON]->Render();
+
+	//	// Arm /////
+	//	Mtx44 sclArm, rotArm, tslArm;
+	//	sclArm.SetToScale(4, 1, 1);
+	//	rotArm.SetToRotation(0, 0, 0, 1);
+	//	tslArm.SetToTranslation(2, 0, 0);
+
+	//	Mtx44 armMtx = tslArm * rotArm * sclArm;
+
+	//	model = bodyMtx * jointMtx * armMtx;
+
+	//	MVP = projection * view * model;
+	//	glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+
+	//	meshList[GEO_QUAD]->Render();
+	//}
+
+////tank
+//	{
+//		Mtx44 tankTranslate, tankRotate, tankScale;
+//		tankTranslate.SetToTranslation(tankPosition.x, tankPosition.y, tankPosition.z);
+//		tankRotate.SetToRotation(0, 0, 0, 1);
+//		tankScale.SetToScale(20, 20, 1);
+//
+//		model = tankTranslate * tankRotate * tankScale;
+//
+//		MVP = projection * view * model;
+//		glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE,&MVP.a[0]);
+//
+//		meshList[GEO_QUAD]->Render();
+//	}
