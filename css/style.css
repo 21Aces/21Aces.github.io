@@ -758,8 +758,8 @@ nav{
 
 
 #player{
-    margin:40px auto;
-    background:url("../images/sprite_sheet.png") no-repeat -100px -112px;
+	margin:40px auto;
+	background:url("../images/sprite_sheet.png") no-repeat -100px -112px;
 	width: 200px;
 	height: 175px;
 }

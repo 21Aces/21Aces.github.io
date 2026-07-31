@@ -51,7 +51,10 @@ show(1); //show first page when first opened instead of white screen
 const player = document.getElementById("player");
 const message = document.getElementById("message");
 const time = document.getElementById("time");
-const startBtn = document.getElementById("startBtn");
+const scoreText = document.getElementById("score");
+const livesText = document.getElementById("lives");
+const bestText = document.getElementById("best");
+
 const sliceSound = new Audio("audio/slicesound.mp3");
 
 // Sprite positions
@@ -59,61 +62,221 @@ const UNCUT = "-100px -112px";
 const CUT = "-500px -100px";
 
 let canDraw = false;
+let roundFinished = false;
 let startTime;
 let timeoutID;
 
-function startGame() {
-    // Reset game state
+let score = 0;
+let lives = 3;
+let bestReaction = null;
+let gameRunning = false;
+
+updateHUD();
+
+function newGame(){
+
+    score = 0;
+    lives = 3;
+    bestReaction = null;
+
+    gameRunning = true;
+
+    updateHUD();
+
+    startGame();
+
+}
+
+function startGame(){
+
+    clearTimeout(timeoutID);
+
     canDraw = false;
-    // Reset watermelon to uncut
+    roundFinished = false;
+
     player.style.backgroundPosition = UNCUT;
-    // Reset text
+
     message.textContent = "Wait...";
     time.textContent = "";
-    // Disable button while waiting
-    startBtn.disabled = true;
-    // Random delay 
+
     let delay = Math.random() * 3000 + 2000;
+
     timeoutID = setTimeout(drawSignal, delay);
+
 }
 
-function drawSignal() {
+function drawSignal(){
+
     message.textContent = "DRAW!";
+
     canDraw = true;
+
     startTime = Date.now();
+
 }
 
-function slash() {
-    // Player clicked too early
-    if (!canDraw) {
-        message.textContent = "Too Early!";
-        clearTimeout(timeoutID);
-        startBtn.disabled = false;
+function slash(){
+
+    if(!gameRunning)
         return;
+
+    if(roundFinished)
+        return;
+
+    if(score >= 10 || lives <= 0)
+        return;
+
+    // Too early
+    if(!canDraw){
+
+        lives--;
+
+        updateHUD();
+
+        message.textContent = "Too Early!";
+
+        clearTimeout(timeoutID);
+
+        roundFinished = true;
+
+        if(lives <= 0){
+
+            gameOver();
+
+            return;
+
+        }
+
+        // Next round automatically
+        setTimeout(function(){
+
+            startGame();
+
+        },1000);
+
+        return;
+
     }
+
+    // Successful cut
     canDraw = false;
-    // Show cut watermelon
+    roundFinished = true;
+
     player.style.backgroundPosition = CUT;
-    // Play slicing sound
+
     sliceSound.pause();
     sliceSound.currentTime = 0;
     sliceSound.play();
-    // Calculate reaction time
+
     let reaction = Date.now() - startTime;
+
     time.textContent = "Reaction Time: " + reaction + " ms";
+
+    if(bestReaction === null || reaction < bestReaction){
+
+        bestReaction = reaction;
+
+    }
+
+    score++;
+
+    updateHUD();
+
     message.textContent = "Nice Slice!";
-    // Allow player to start another round
-    startBtn.disabled = false;
+
+    if(score >= 10){
+
+        winGame();
+
+        return;
+
+    }
+
+    // Automatically begin next round
+    setTimeout(function(){
+
+        startGame();
+
+    },1000);
+
 }
 
-// Spacebar 
-document.addEventListener("keydown", function(event){
-    if(event.code == "Space"){
-        event.preventDefault();
-        slash();
+function updateHUD(){
+
+    scoreText.textContent = "Score: " + score;
+
+    let hearts = "";
+
+    for(let i = 0; i < lives; i++){
+
+        hearts += "❤️";
+
     }
+
+    livesText.textContent = "Lives: " + hearts;
+
+    if(bestReaction == null){
+
+        bestText.textContent = "Best Reaction: --";
+
+    }
+    else{
+
+        bestText.textContent = "Best Reaction: " + bestReaction + " ms";
+
+    }
+
+}
+
+function gameOver(){
+
+    gameRunning = false;
+
+    message.textContent = "☠ GAME OVER";
+
+}
+
+function winGame(){
+
+    gameRunning = false;
+
+    message.textContent = "🏆 YOU WIN!";
+
+}
+
+// Event Delegation
+document.querySelector(".buttonContainer").addEventListener("click", function(e){
+
+    if(e.target.id === "startBtn"){
+
+        if(!gameRunning){
+
+            newGame();
+
+        }
+
+    }
+
+    if(e.target.id === "slashBtn"){
+
+        slash();
+
+    }
+
 });
 
+// Spacebar support
+document.addEventListener("keydown", function(event){
+
+    if(event.code === "Space"){
+
+        event.preventDefault();
+
+        slash();
+
+    }
+
+});
 
 
 
